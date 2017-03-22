@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+header {
+  height: 100px;
+  background-color: #404041;
+}
+
+h1 {
+  padding-top: 10px;
+  margin: 0px;
+  color: #ED458B;
+  font-size: 54px;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: inherit;
+}
+
+h3 {
+  margin: 0px;
+  color: #EB008B;
+  font-size: 172px;
+  font-weight: inherit;
+}
+
+.title-light {
+  color: #E6E7E8;
+  font-weight: 300;
+}
+
+input {
+  display: block;
+  width: 350px;
+  padding: 8px;
+  margin: 50px auto 30px;
+  font-size: 20px;
+  font-weight: inherit;
+}
+
+button {
+  width: 170px;
+  height: 42px;
+  margin: 10px;
+  background-color: #929497;
+  border: 0px;
+  border-radius: 21px;
+  color: #FFF;
+  font-size: 28px;
+  font-weight: inherit;
+  text-align: center;}
+button:hover {
+    background-color: #EB008B;}
+button:disabled {
+  /*How to elect ':disabled'??*/
+  background-color: #D0D2D3;
+}
+
+.reset {
+  width: 350px;
+  font-size: 22px;
+}

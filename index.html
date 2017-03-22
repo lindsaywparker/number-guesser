@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>Number Guesser</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
+  <body>
+    <header>
+      <h1>Number <span class="title-light">Guesser</span></h1>
+    </header>
+    <main>
+      <input type="number" id="guess" placeholder="Enter your guess (between 1 and 100)"/>
+      <button id="buttonGuess">Guess</button>
+      <button id="clearGuess">Clear</button>
+      <h2>Your last guess was</h2>
+      <h3 id="displayLastGuess"></h3>
+      <h2 id="msg">This is where the message goes</h2>
+      <button class="reset" type="reset">Reset</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
