@@ -1,11 +1,12 @@
-// limit input range?
-
 var lastGuess;
 var newGuessInput = document.getElementById('guess');
 var newGuess = Number.parseInt(newGuessInput.value, 10);
-var inputMin = 1;
-var inputMax = 100;
-var answer = Math.floor(Math.random() * inputMax + 1);
+var ranges = document.querySelectorAll('.userRange');
+var inputMin = Number.parseInt(document.getElementById('userMin').value, 10);
+var inputMax = Number.parseInt(document.getElementById('userMax').value, 10);
+var answer = Math.floor(Math.random() * (Math.floor(inputMax) - Math.ceil(inputMin) + 1)) + inputMin;
+  console.log("inputMin = " + inputMin);
+  console.log("inputMax = " + inputMax);
   console.log("answer = " + answer);
 
 function clearField() {
@@ -26,12 +27,25 @@ function errNotNumber() {
   alert("That's just not even a number.  Come on...");
 }
 
-// Enable all buttons
+// Enable all buttons on guess input
 newGuessInput.addEventListener('keyup', function () {
   document.getElementById('clearGuess').disabled = false;
   document.getElementById('buttonGuess').disabled = false;
   document.getElementById('buttonReset').disabled = false;
 });
+
+// On Min/Max input, enable reset button and recalculate answer
+for (i = 0; i < ranges.length; i++) {
+  ranges[i].addEventListener('keyup', function() {
+    document.getElementById('buttonReset').disabled = false;
+    inputMin = Number.parseInt(document.getElementById('userMin').value, 10);
+    inputMax = Number.parseInt(document.getElementById('userMax').value, 10);
+    answer = Math.floor(Math.random() * (Math.floor(inputMax) - Math.ceil(inputMin) + 1)) + inputMin;
+    console.log("inputMin = " + inputMin);
+    console.log("inputMax = " + inputMax);
+    console.log("answer = " + answer);
+  });
+}
 
 // Guess Button Functionality
 document.getElementById('buttonGuess').addEventListener('click', function() {
@@ -65,7 +79,11 @@ document.getElementById('clearGuess').addEventListener('click', function() {
 document.getElementById('buttonReset').addEventListener('click', function() {
   clearField();
   document.getElementById('displayLastGuess').innerText = "--";
-  answer = Math.floor(Math.random() * inputMax + 1);
-    console.log("answer = " + answer);
   document.getElementById('buttonReset').disabled = true;
+  inputMin = "1";
+  document.getElementById('userMin').value = inputMin;
+  inputMax = "100";
+  document.getElementById('userMax').value = inputMax;
+  answer = Math.floor(Math.random() * inputMax + 1);
+  console.log("answer = " + answer);
 });
